@@ -1,39 +1,169 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{97C3C033-6252-4D48-B5FB-FB5502BAF6F1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>VSMacroList</RootNamespace>
-    <AssemblyName>VSMacroList</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <TargetFrameworks>net7.0-windows</TargetFrameworks>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo                 AdditionalLibPaths: $(AdditionalLibPaths)" />
+    <Exec Command="echo                         AddModules: $(AddModules)" />
+    <Exec Command="echo                         ALToolPath: $(ALToolPath)" />
+    <Exec Command="echo                    ApplicationIcon: $(ApplicationIcon)" />
+    <Exec Command="echo                ApplicationManifest: $(ApplicationManifest)" />
+    <Exec Command="echo          AssemblyOriginatorKeyFile: $(AssemblyOriginatorKeyFile)" />
+    <Exec Command="echo                AssemblySearchPaths: $(AssemblySearchPaths)" />
+    <Exec Command="echo                       AssemblyName: $(AssemblyName)" />
+    <Exec Command="echo                        BaseAddress: $(BaseAddress)" />
+    <Exec Command="echo         BaseIntermediateOutputPath: $(BaseIntermediateOutputPath)" />
+    <Exec Command="echo                     BaseOutputPath: $(BaseOutputPath)" />
+    <Exec Command="echo                    BuildInParallel: $(BuildInParallel)" />
+    <Exec Command="echo             BuildProjectReferences: $(BuildProjectReferences)" />
+    <Exec Command="echo                          CleanFile: $(CleanFile)" />
+    <Exec Command="echo                           CodePage: $(CodePage)" />
+    <Exec Command="echo               CompilerResponseFile: $(CompilerResponseFile)" />
+    <Exec Command="echo                      Configuration: $(Configuration)" />
+    <Exec Command="echo                        CscToolPath: $(CscToolPath)" />
+    <Exec Command="echo  CustomAfterMicrosoftCommonTargets: $(CustomAfterMicrosoftCommonTargets)" />
+    <Exec Command="echo CustomBeforeMicrosoftCommonTargets: $(CustomBeforeMicrosoftCommonTargets)" />
+    <Exec Command="echo                       DebugSymbols: $(DebugSymbols)" />
+    <Exec Command="echo                          DebugType: $(DebugType)" />
+    <Exec Command="echo                    DefineConstants: $(DefineConstants)" />
+    <Exec Command="echo                        DefineDebug: $(DefineDebug)" />
+    <Exec Command="echo                        DefineTrace: $(DefineTrace)" />
+    <Exec Command="echo                          DelaySign: $(DelaySign)" />
+    <Exec Command="echo                      Deterministic: $(Deterministic)" />
+    <Exec Command="echo                          DevEnvDir: $(DevEnvDir)" />
+    <Exec Command="echo            DirectoryBuildPropsPath: $(DirectoryBuildPropsPath)" />
+    <Exec Command="echo          DirectoryBuildTargetsPath: $(DirectoryBuildTargetsPath)" />
+    <Exec Command="echo           DisableFastUpToDateCheck: $(DisableFastUpToDateCheck)" />
+    <Exec Command="echo                  DocumentationFile: $(DocumentationFile)" />
+    <Exec Command="echo                        ErrorReport: $(ErrorReport)" />
+    <Exec Command="echo               ExcludeDeploymentUrl: $(ExcludeDeploymentUrl)" />
+    <Exec Command="echo                      FileAlignment: $(FileAlignment)" />
+    <Exec Command="echo                       FrameworkDir: $(FrameworkDir)" />
+    <Exec Command="echo              FrameworkPathOverride: $(FrameworkPathOverride)" />
+    <Exec Command="echo                    FrameworkSDKDir: $(FrameworkSDKDir)" />
+    <Exec Command="echo                   FrameworkVersion: $(FrameworkVersion)" />
+    <Exec Command="echo                           FxCopDir: $(FxCopDir)" />
+    <Exec Command="echo              GenerateDocumentation: $(GenerateDocumentation)" />
+    <Exec Command="echo                  GenerateFullPaths: $(GenerateFullPaths)" />
+    <Exec Command="echo    GenerateSerializationAssemblies: $(GenerateSerializationAssemblies)" />
+    <Exec Command="echo          ImportDirectoryBuildProps: $(ImportDirectoryBuildProps)" />
+    <Exec Command="echo        ImportDirectoryBuildTargets: $(ImportDirectoryBuildTargets)" />
+    <Exec Command="echo                             IntDir: $(IntDir)" />
+    <Exec Command="echo             IntermediateOutputPath: $(IntermediateOutputPath)" />
+    <Exec Command="echo                   KeyContainerName: $(KeyContainerName)" />
+    <Exec Command="echo                  KeyOriginatorFile: $(KeyOriginatorFile)" />
+    <Exec Command="echo                 ModuleAssemblyName: $(ModuleAssemblyName)" />
+    <Exec Command="echo                     MSBuildBinPath: $(MSBuildBinPath)" />
+    <Exec Command="echo              MSBuildExtensionsPath: $(MSBuildExtensionsPath)" />
+    <Exec Command="echo            MSBuildExtensionsPath32: $(MSBuildExtensionsPath32)" />
+    <Exec Command="echo            MSBuildExtensionsPath64: $(MSBuildExtensionsPath64)" />
+    <Exec Command="echo              MSBuildLastTaskResult: $(MSBuildLastTaskResult)" />
+    <Exec Command="echo                   MSBuildNodeCount: $(MSBuildNodeCount)" />
+    <Exec Command="echo              MSBuildProgramFiles32: $(MSBuildProgramFiles32)" />
+    <Exec Command="echo       MSBuildProjectDefaultTargets: $(MSBuildProjectDefaultTargets)" />
+    <Exec Command="echo            MSBuildProjectDirectory: $(MSBuildProjectDirectory)" />
+    <Exec Command="echo      MSBuildProjectDirectoryNoRoot: $(MSBuildProjectDirectoryNoRoot)" />
+    <Exec Command="echo            MSBuildProjectExtension: $(MSBuildProjectExtension)" />
+    <Exec Command="echo       MSBuildProjectExtensionsPath: $(MSBuildProjectExtensionsPath)" />
+    <Exec Command="echo                 MSBuildProjectFile: $(MSBuildProjectFile)" />
+    <Exec Command="echo             MSBuildProjectFullPath: $(MSBuildProjectFullPath)" />
+    <Exec Command="echo                 MSBuildProjectName: $(MSBuildProjectName)" />
+    <Exec Command="echo            MSBuildStartupDirectory: $(MSBuildStartupDirectory)" />
+    <Exec Command="echo                    MSBuildThisFile: $(MSBuildThisFile)" />
+    <Exec Command="echo           MSBuildThisFileDirectory: $(MSBuildThisFileDirectory)" />
+    <Exec Command="echo     MSBuildThisFileDirectoryNoRoot: $(MSBuildThisFileDirectoryNoRoot)" />
+    <Exec Command="echo           MSBuildThisFileExtension: $(MSBuildThisFileExtension)" />
+    <Exec Command="echo            MSBuildThisFileFullPath: $(MSBuildThisFileFullPath)" />
+    <Exec Command="echo                MSBuildThisFileName: $(MSBuildThisFileName)" />
+    <Exec Command="echo                   MSBuildToolsPath: $(MSBuildToolsPath)" />
+    <Exec Command="echo                MSBuildToolsVersion: $(MSBuildToolsVersion)" />
+    <Exec Command="echo       MSBuildTreatWarningsAsErrors: $(MSBuildTreatWarningsAsErrors)" />
+    <Exec Command="echo            MSBuildWarningsAsErrors: $(MSBuildWarningsAsErrors)" />
+    <Exec Command="echo          MSBuildWarningsAsMessages: $(MSBuildWarningsAsMessages)" />
+    <Exec Command="echo                             NoLogo: $(NoLogo)" />
+    <Exec Command="echo                           NoStdLib: $(NoStdLib)" />
+    <Exec Command="echo               NoVBRuntimeReference: $(NoVBRuntimeReference)" />
+    <Exec Command="echo                             NoWarn: $(NoWarn)" />
+    <Exec Command="echo                    NoWin32Manifest: $(NoWin32Manifest)" />
+    <Exec Command="echo                           Optimize: $(Optimize)" />
+    <Exec Command="echo                      OptionCompare: $(OptionCompare)" />
+    <Exec Command="echo                     OptionExplicit: $(OptionExplicit)" />
+    <Exec Command="echo                        OptionInfer: $(OptionInfer)" />
+    <Exec Command="echo                       OptionStrict: $(OptionStrict)" />
+    <Exec Command="echo                             OutDir: $(OutDir)" />
+    <Exec Command="echo                         OutputPath: $(OutputPath)" />
+    <Exec Command="echo                         OutputType: $(OutputType)" />
+    <Exec Command="echo             OverwriteReadOnlyFiles: $(OverwriteReadOnlyFiles)" />
+    <Exec Command="echo                            PathMap: $(PathMap)" />
+    <Exec Command="echo                            PdbFile: $(PdbFile)" />
+    <Exec Command="echo                           Platform: $(Platform)" />
+    <Exec Command="echo                  PlatformShortName: $(PlatformShortName)" />
+    <Exec Command="echo              ProcessorArchitecture: $(ProcessorArchitecture)" />
+    <Exec Command="echo       ProduceOnlyReferenceAssembly: $(ProduceOnlyReferenceAssembly)" />
+    <Exec Command="echo           ProduceReferenceAssembly: $(ProduceReferenceAssembly)" />
+    <Exec Command="echo                         ProjectDir: $(ProjectDir)" />
+    <Exec Command="echo                         ProjectExt: $(ProjectExt)" />
+    <Exec Command="echo                    ProjectFileName: $(ProjectFileName)" />
+    <Exec Command="echo                        ProjectName: $(ProjectName)" />
+    <Exec Command="echo                        ProjectPath: $(ProjectPath)" />
+    <Exec Command="echo                         PublishDir: $(PublishDir)" />
+    <Exec Command="echo                      RemoteMachine: $(RemoteMachine)" />
+    <Exec Command="echo                RemoveIntegerChecks: $(RemoveIntegerChecks)" />
+    <Exec Command="echo                      RootNamespace: $(RootNamespace)" />
+    <Exec Command="echo              Satellite_AlgorithmId: $(Satellite_AlgorithmId)" />
+    <Exec Command="echo              Satellite_BaseAddress: $(Satellite_BaseAddress)" />
+    <Exec Command="echo              Satellite_CompanyName: $(Satellite_CompanyName)" />
+    <Exec Command="echo            Satellite_Configuration: $(Satellite_Configuration)" />
+    <Exec Command="echo              Satellite_Description: $(Satellite_Description)" />
+    <Exec Command="echo             Satellite_EvidenceFile: $(Satellite_EvidenceFile)" />
+    <Exec Command="echo              Satellite_FileVersion: $(Satellite_FileVersion)" />
+    <Exec Command="echo                    Satellite_Flags: $(Satellite_Flags)" />
+    <Exec Command="echo        Satellite_GenerateFullPaths: $(Satellite_GenerateFullPaths)" />
+    <Exec Command="echo             Satellite_LinkResource: $(Satellite_LinkResource)" />
+    <Exec Command="echo           Satellite_MainEntryPoint: $(Satellite_MainEntryPoint)" />
+    <Exec Command="echo              Satellite_ProductName: $(Satellite_ProductName)" />
+    <Exec Command="echo           Satellite_ProductVersion: $(Satellite_ProductVersion)" />
+    <Exec Command="echo               Satellite_TargetType: $(Satellite_TargetType)" />
+    <Exec Command="echo                    Satellite_Title: $(Satellite_Title)" />
+    <Exec Command="echo                Satellite_Trademark: $(Satellite_Trademark)" />
+    <Exec Command="echo                  Satellite_Version: $(Satellite_Version)" />
+    <Exec Command="echo                Satellite_Win32Icon: $(Satellite_Win32Icon)" />
+    <Exec Command="echo            Satellite_Win32Resource: $(Satellite_Win32Resource)" />
+    <Exec Command="echo                       SGenToolPath: $(SGenToolPath)" />
+    <Exec Command="echo                  SGenUseProxyTypes: $(SGenUseProxyTypes)" />
+    <Exec Command="echo          SkipInvalidConfigurations: $(SkipInvalidConfigurations)" />
+    <Exec Command="echo                        SolutionDir: $(SolutionDir)" />
+    <Exec Command="echo                        SolutionExt: $(SolutionExt)" />
+    <Exec Command="echo                   SolutionFileName: $(SolutionFileName)" />
+    <Exec Command="echo                       SolutionName: $(SolutionName)" />
+    <Exec Command="echo                       SolutionPath: $(SolutionPath)" />
+    <Exec Command="echo                      StartupObject: $(StartupObject)" />
+    <Exec Command="echo                   SubsystemVersion: $(SubsystemVersion)" />
+    <Exec Command="echo             TargetCompactFramework: $(TargetCompactFramework)" />
+    <Exec Command="echo                          TargetDir: $(TargetDir)" />
+    <Exec Command="echo                          TargetExt: $(TargetExt)" />
+    <Exec Command="echo                     TargetFileName: $(TargetFileName)" />
+    <Exec Command="echo             TargetFrameworkVersion: $(TargetFrameworkVersion)" />
+    <Exec Command="echo                         TargetName: $(TargetName)" />
+    <Exec Command="echo                         TargetPath: $(TargetPath)" />
+    <Exec Command="echo              TreatWarningsAsErrors: $(TreatWarningsAsErrors)" />
+    <Exec Command="echo           UseCommonOutputDirectory: $(UseCommonOutputDirectory)" />
+    <Exec Command="echo         UseHostCompilerIfAvailable: $(UseHostCompilerIfAvailable)" />
+    <Exec Command="echo                         Utf8Output: $(Utf8Output)" />
+    <Exec Command="echo                        VbcToolPath: $(VbcToolPath)" />
+    <Exec Command="echo                       VbcVerbosity: $(VbcVerbosity)" />
+    <Exec Command="echo                       VCInstallDir: $(VCInstallDir)" />
+    <Exec Command="echo                       VSInstallDir: $(VSInstallDir)" />
+    <Exec Command="echo                VisualStudioVersion: $(VisualStudioVersion)" />
+    <Exec Command="echo                   WarningsAsErrors: $(WarningsAsErrors)" />
+    <Exec Command="echo                       WarningLevel: $(WarningLevel)" />
+    <Exec Command="echo                WarningsNotAsErrors: $(WarningsNotAsErrors)" />
+    <Exec Command="echo                      WebDeployPath: $(WebDeployPath)" />
+    <Exec Command="echo                      WebDeployRoot: $(WebDeployRoot)" />
+    <Exec Command="echo                      Win32Manifest: $(Win32Manifest)" />
+    <Exec Command="echo                      Win32Resource: $(Win32Resource)" />
+  </Target>
+
 </Project>
